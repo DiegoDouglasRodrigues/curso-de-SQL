@@ -10,7 +10,9 @@ BANCO DE DADOS CONTEN TABELAS
 TABELAS CONTEM REGISTROS
 REGISTROS SAO COMPOSTOS POR CAMPOS
 
+--------------------------------------------------
 criando tabela ----------------------------------
+
 create table pessoas (
 id int not null auto_increment,
 nome varchar(30) not null,
@@ -22,5 +24,117 @@ nacionalidade varchar(20) default 'Brasil',
 primary key (id)
 ) DEFAULT CHARSET = UTF8;
 
+describe pessoas;
+
+---------------------------------------
+Aula 5 Inserindo dados------------------------
+
+comando INSERT INTO
+
+no exempo - 'pessoas' eh o nome da tabela
+id eh auto incremental e nao nulo
+nao ah necessidade de colocar ID nem o seu valor correspondente, mas caso queira
+pode colocar id e no Values 'default'
+
+
+inserindo varias linhas, o que finaliza o codigo eh o ";"
+INSERT INTO pessoas
+(id, nome, nascimento, sexo, peso, altura, nacionalidade)
+VALUES 
+(default,'joao', '2020-05-10', 'M', '75.5', '1.83', default ),
+(default,'Maria', '2020-05-10', 'M', '75.5', '1.83', default ),
+(default,'Pedro', '2020-05-10', 'M', '75.5', '1.83', default ),
+(default,'Bruna', '2020-05-10', 'M', '75.5', '1.83', default );
+
+select * from pessoas;
+
+
+
+----------------------------------------------
+Aula 6 – Alterando a Estrutura da Tabela (ALTER TABLE e DROP TABLE)
+
+inserindo coluna no final ( campo = coluna)
+
 
 describe pessoas;
+
+alter table pessoas
+add column profissao varchar(10); 
+
+
+describe pessoas;
+
+
+
+-- adicionar coluna
+alter table pessoas
+add column profissao varchar(10); 
+
+
+-- criar coluna no comeco
+alter table pessoas
+add column profissao varchar(10) after nome;
+
+
+-- adicionar na primeira posicao
+alter table pessoas
+add codigo int first; 
+
+-- apagar coluna
+alter table pessoas
+drop column profissao;
+
+
+-- alterando estrutura
+alter table pessoas
+modify column profissao varchar(25) default '' ;
+
+
+------- para mudar o nome da coluna
+ALTER TABLE pessoas
+CHANGE profissao prof VARCHAR(30) not null default '';
+
+
+------- para alterar o nome da tabela
+alter table pessoas
+rename to gafanhotos;
+
+
+
+select * from pessoas;
+
+---------- criando uma nova tabela
+
+
+create table if not exists cursos (
+nome varchar(30) not null unique,
+descricao text,
+carga int unsigned,
+totaulas int unsigned,
+ano year default '2023'
+) default charset = utf8;
+
+describe cursos;
+
+--- adicionado coluna ID
+alter table cursos
+add column idcurso int first;
+
+
+alter table cursos
+add primary key (idcurso);
+
+-------------------------------------------
+Aula 7 – Manipulando Linhas (UPDATE, DELETE e TRUNCATE)----
+
+
+
+
+
+
+
+
+
+
+
+
