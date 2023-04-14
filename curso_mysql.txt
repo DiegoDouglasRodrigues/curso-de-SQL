@@ -128,11 +128,50 @@ add primary key (idcurso);
 Aula 7 – Manipulando Linhas (UPDATE, DELETE e TRUNCATE)----
 
 
+linhas sao meus registos
+colunas sao campos
 
 
+use cadastro;
 
 
+select * from cursos;
 
+insert into cursos values
+('1', 'HTML5', 'CURSO DE HTML 5 ', '40', '37', '2014'),
+('2', 'ALGORITIMOS', 'LOGICA DE PROGRAMACAO', '20', '15', '2014'),
+('3', 'PHOTOSHOP', 'DICAS DE PHOTOSHOP', '10', '8', '2014'),
+('4', 'PGP', 'CURSO DE PHP PARA INICIANTES', '40', '10', '2010'),
+('5', 'JARVA', 'INTRODUCAO A LINGUAGEM JAVA', '10', '29', '2000'),
+('6', 'MYSQL', 'BANCO DE DADOS MYSQL', '30', '15', '2016' ),
+('7', 'WORD', 'CURSO DE WORD COMPLETO', '40', '30', '2016'),
+('8', 'SAPATEADO', 'DANCAS RITMICAS', '40', '30', '2018' ),
+('9', 'COZINHA HARABE', 'APRENDA A FAZER KIBE', '40', '30', '2018'),
+('10','YOUTUBER', 'GERAR POLEMICA E GANHAR INSCRITOS', '5', '2', '2018');
+
+
+---- atualizando dados
+update cursos
+set nome = 'HTML5' where idcurso = '1';
+
+update cursos
+set nome = 'PHP', ano = '2015' where idcurso = '4';
+
+update cursos
+set nome = 'JAVA', carga = '40', ano = '2023'
+where idcurso = '5'
+limit 1;
+
+---- deletando
+delete from cursos
+where idcurso = '10';
+
+
+--- para apagar todos os registros de uma tabela
+truncate table cursos;
+
+---------------------------------------------------
+Aula 8 – Gerenciando Cópias de Segurança MySQL
 
 
 
