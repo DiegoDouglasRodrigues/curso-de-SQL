@@ -300,6 +300,21 @@ having ano >'2015'
 order by count(8) desc;
 
 
+--- exercicios 01
+use gafanhotos;
+select * from gafanhotos;
+select profissao, count(*) from gafanhotos
+group by profissao;
+
+
+
+--- exercicios 02
+select sexo,count(*) from gafanhotos
+where nascimento > '2005-05-10'
+group by sexo;
+
+
+
  
 
 
