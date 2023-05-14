@@ -262,6 +262,44 @@ where carga > 35 and totaulas < 30;
 
 
 
+---- CURSOS QUE COMECAM COM ALGUMA LETRA "P"
+select * from cursos
+where nome like 'P%';
+
+update cursos set nome = 'POOOO' where idcurso = '9';
+
+-- exigindo que tenha um caracter no final
+select * from cursos
+where nome like 'ph%p_';
+
+
+--- selecionar apenas 1 registro da nacionalidae
+use gafanhotos;
+select distinct nacionalidade from gafanhotos
+order by nacionalidade;
+
+
+--- funcao de agregacao
+select * from cursos;
+select count(*) from cursos;
+
+
+select count(*) from cursos where carga >40;
+
+---- Aula 13 – SELECT (Parte 3) AGRUPAMENTOS
+
+select ano, count(nome) from cursos  
+group by ano
+order by ano;
+
+select * from cursos where carga = '30';
+
+select ano, count(*) from cursos
+group by ano
+having ano >'2015'
+order by count(8) desc;
+
+
  
 
 
